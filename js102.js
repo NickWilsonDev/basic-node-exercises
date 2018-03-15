@@ -9,140 +9,26 @@
 //printSquare(4);
 
 
-var printBox = function(width, height) {
-    boxTop = '';
-    box = '';
-    for (var i = 0; i < width; i++) {
-        boxTop = boxTop + '*';
-    }
-    bottom = boxTop;
-    side = '*'
-    for (var i = 0; i < width - 2; i++) {
-        side = side + ' ';
-    }
-    side = side + '*';
-
-    
-    box = box + boxTop + '\n';
-    for (var i = 0; i < height - 2; i++) {
-        box = box + side + '\n';
-    }
-    box = box + bottom + '\n';
-//    console.log(box);
-    
-}
-
 //printBox(5, 5);
 
-var printBanner = function (text) {
-    var bannerTop = ''
-    for (var i = 0; i < text.length + 4; i++) {
-        bannerTop  = bannerTop + '*';
-    }
-
-    var middleRow = '* ' + text + ' *';
-
-    var banner = bannerTop + '\n' + middleRow + '\n' + bannerTop + '\n';
-//    console.log(banner);
-}
 
 //printBanner("hey Nick");
 
-var factors = function (num) {
-    array = [];
-
-    for (var i = 1; i < num + 1; i++) {
-        if (num % i == 0) {
-            array.push(i);
-        }
-    }
-    return array;
-}
 
 //console.log(factors(10));
 
-var findKey = function(hashArray, value) {
-    return hashArray.indexOf(value);
-};
-
-var cipher = function (string, offset) {
-    var alphabet = [];
-    for (var i = 65; i <= 65 + 52 + 5; i++) {
-        alphabet[i - 65] = String.fromCharCode(i);
-    }
-    newString = ''
-    for (var i = 0; i < string.length; i++) {
-        //console.log(string[i]);
-        key = findKey(alphabet, string[i])
-        newString += alphabet[key - offset];
-    }
-    return newString;
-};
 
 
 //console.log(cipher('nick', 3));
 
-var deCipher = function (string, offset) {
-    var alphabet = [];
-    for (var i = 65; i <= (65 + 52 + 5); i++) {
-        alphabet[i - 65] = String.fromCharCode(i);
-    }
-    newString = ''
-    for (var i = 0; i < string.length; i++) {
-        //console.log(string[i]);
-        key = findKey(alphabet, string[i])
-        //console.log("offset " + (key+offset));
-        if (key + offset > 119) {
-            offset = (key + offset) % 109;
-        }
-        newString += alphabet[key + offset];
-    }
-    return newString;
-};
 
 //console.log(deCipher('Travhf jvgubhg rqhpngvba vf yvxr fvyire va gur zvar', 13));
 
-var leetspeak = function(string) {
-    var specialLetters = {
-        'a' : 4,
-        'e' : 3,
-        'g' : 6,
-        'i' : 1,
-        'o' : 0,
-        's' : 5,
-        't' : 7
-    };
-    string = string.toLowerCase();
-    newString = '';
-    for (var i = 0; i < string.length; i++) {
-        console.log("letter :: " + string[i]);
-        if (string[i] in specialLetters) {
-            newString = newString + specialLetters[string[i]];
-        } else {
-            newString = newString + string[i];
-        }
-    }
-    return newString;
-};
 
 console.log(leetspeak('hello'));
 
 
-var longLongVowels = function (str) {
-    newStr = str.replace(/oo/gi, 'ooooo');
-    newStr = str.replace(/ee/gi, 'eeeee');
-    newStr = str.replace(/aa/gi, 'aaaaa');
-    newStr = str.replace(/ii/gi, 'iiiii');
-    return newStr;
-};
 
-var sumNumbers = function (arr) {
-    total = 0;
-    for (element in arr) {
-        total = total + element;
-    }
-    return total;
-};
 
 var positiveNumbers = function (arr) {
     newArr = [];
